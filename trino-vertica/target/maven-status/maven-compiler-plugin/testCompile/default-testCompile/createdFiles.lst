@@ -1,0 +1,13 @@
+io/trino/plugin/vertica/TestVerticaPlugin.class
+io/trino/plugin/vertica/VerticaQueryRunner$Builder.class
+io/trino/plugin/vertica/TestingVerticaServer$1.class
+io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest$1.class
+io/trino/plugin/vertica/TestingVerticaServer.class
+io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest.class
+io/trino/plugin/vertica/TestVerticaLatestConnectorSmokeTest.class
+io/trino/plugin/vertica/TestVerticaTableStatistics.class
+io/trino/plugin/vertica/VerticaQueryRunner.class
+io/trino/plugin/vertica/TestVerticaConnectorTest$1.class
+io/trino/plugin/vertica/TestVerticaConnectorTest.class
+io/trino/plugin/vertica/TestVerticaTypeMapping.class
+io/trino/plugin/vertica/TestVerticaConnectorSmokeTest.class

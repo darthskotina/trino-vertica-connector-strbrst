@@ -1,0 +1,18 @@
+#Tue Nov 26 17:30:36 EET 2024
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClient.java=1732632999065
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClientModule.java=1732529643368
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaConfig.java=1732634764401
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaDriver.java=1732529643368
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaPlugin.java=1732529643368
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaSessionProperties.java=1732634908411
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaTableStatisticsReader.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorSmokeTest.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorTest.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaLatestConnectorSmokeTest.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaPlugin.java=1732529643369
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTableStatistics.java=1732529643370
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTypeMapping.java=1732529643370
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestingVerticaServer.java=1732529643370
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/VerticaQueryRunner.java=1732529643370
+configuration*?=9FC56111B907E2FDDD9A7D2B1E3A6E4A91586569

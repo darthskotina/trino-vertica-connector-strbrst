@@ -1,0 +1,9 @@
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorSmokeTest.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorTest.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaLatestConnectorSmokeTest.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaPlugin.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTableStatistics.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTypeMapping.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestingVerticaServer.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/VerticaQueryRunner.java

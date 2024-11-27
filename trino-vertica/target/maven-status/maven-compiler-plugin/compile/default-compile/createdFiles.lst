@@ -1,0 +1,17 @@
+io/trino/plugin/vertica/VerticaSessionProperties.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$NullableValue.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$ColumnStatistics.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$Histogram$Category.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$StatisticsDao.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$NumericValue.class
+io/trino/plugin/vertica/VerticaClient.class
+io/trino/plugin/vertica/VerticaConfig.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$Column.class
+io/trino/plugin/vertica/VerticaDriver.class
+io/trino/plugin/vertica/VerticaClientModule.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$Histogram.class
+io/trino/plugin/vertica/VerticaPlugin.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$Schema.class
+io/trino/plugin/vertica/VerticaTableStatisticsReader$Table.class
+io/trino/plugin/vertica/VerticaConfig$ArrayMapping.class

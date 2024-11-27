@@ -1,0 +1,7 @@
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClient.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClientModule.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaConfig.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaDriver.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaPlugin.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaSessionProperties.java
+/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaTableStatisticsReader.java

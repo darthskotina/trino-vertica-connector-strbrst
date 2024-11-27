@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.20.1">
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaPlugin.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaConfig.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClientModule.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaClient.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaSessionProperties.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaDriver.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/main/java/io/trino/plugin/vertica/VerticaTableStatisticsReader.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaLatestConnectorSmokeTest.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTableStatistics.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/VerticaQueryRunner.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorSmokeTest.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestingVerticaServer.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaTypeMapping.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaConnectorTest.java">
+</file>
+<file name="/Users/pzakharov/IdeaProjects/trino_465/plugin/trino-vertica/src/test/java/io/trino/plugin/vertica/TestVerticaPlugin.java">
+</file>
+</checkstyle>

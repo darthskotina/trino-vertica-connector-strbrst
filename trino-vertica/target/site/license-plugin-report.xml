@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="CHECK" timestamp="1732635036348">
+    <module artifactId="trino-vertica" groupId="io.trino" version="465"/>
+    <files>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaClient.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaClientModule.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaConfig.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaDriver.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaPlugin.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaSessionProperties.java" result="PRESENT"/>
+        <file path="src/main/java/io/trino/plugin/vertica/VerticaTableStatisticsReader.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/BaseVerticaConnectorSmokeTest.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaConnectorSmokeTest.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaConnectorTest.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaLatestConnectorSmokeTest.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaPlugin.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaTableStatistics.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestVerticaTypeMapping.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/TestingVerticaServer.java" result="PRESENT"/>
+        <file path="src/test/java/io/trino/plugin/vertica/VerticaQueryRunner.java" result="PRESENT"/>
+    </files>
+</licensePluginReport>
