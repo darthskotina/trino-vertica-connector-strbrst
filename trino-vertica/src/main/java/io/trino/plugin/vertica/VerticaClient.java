@@ -32,6 +32,7 @@ import io.trino.plugin.jdbc.LongWriteFunction;
 import io.trino.plugin.jdbc.ObjectWriteFunction;
 import io.trino.plugin.jdbc.PreparedQuery;
 import io.trino.plugin.jdbc.QueryBuilder;
+import io.trino.plugin.jdbc.SliceWriteFunction;
 import io.trino.plugin.jdbc.WriteMapping;
 import io.trino.plugin.jdbc.expression.JdbcConnectorExpressionRewriterBuilder;
 import io.trino.plugin.jdbc.expression.ParameterizedExpression;
@@ -47,10 +48,13 @@ import io.trino.spi.type.DecimalType;
 import io.trino.spi.type.Decimals;
 import io.trino.spi.type.LongTimestamp;
 import io.trino.spi.type.LongTimestampWithTimeZone;
+import io.trino.spi.type.StandardTypes;
 import io.trino.spi.type.TimeType;
 import io.trino.spi.type.TimestampType;
 import io.trino.spi.type.TimestampWithTimeZoneType;
 import io.trino.spi.type.Type;
+import io.trino.spi.type.TypeManager;
+import io.trino.spi.type.TypeSignature;
 import io.trino.spi.type.VarbinaryType;
 import io.trino.spi.type.VarcharType;
 
@@ -72,6 +76,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
+import java.util.UUID;
 import java.util.function.BiFunction;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -130,6 +135,8 @@ import static io.trino.spi.type.Timestamps.PICOSECONDS_PER_MICROSECOND;
 import static io.trino.spi.type.Timestamps.PICOSECONDS_PER_NANOSECOND;
 import static io.trino.spi.type.Timestamps.round;
 import static io.trino.spi.type.TinyintType.TINYINT;
+import static io.trino.spi.type.UuidType.javaUuidToTrinoUuid;
+import static io.trino.spi.type.UuidType.trinoUuidToJavaUuid;
 import static io.trino.spi.type.VarcharType.createVarcharType;
 import static java.lang.Math.floorDiv;
 import static java.lang.Math.floorMod;
@@ -152,6 +159,7 @@ public class VerticaClient
             .appendPattern("-MM-dd[ G]")
             .toFormatter();
 
+    private final Type uuidType;
     private final boolean statisticsEnabled;
     private final ConnectorExpressionRewriter<ParameterizedExpression> connectorExpressionRewriter;
 
@@ -161,11 +169,13 @@ public class VerticaClient
             JdbcStatisticsConfig statisticsConfig,
             ConnectionFactory connectionFactory,
             QueryBuilder queryBuilder,
+            TypeManager typeManager,
             IdentifierMapping identifierMapping,
             RemoteQueryModifier queryModifier)
     {
         super("\"", connectionFactory, queryBuilder, config.getJdbcTypesMappedToVarchar(), identifierMapping, queryModifier, false);
         this.statisticsEnabled = requireNonNull(statisticsConfig, "statisticsConfig is null").isEnabled();
+        this.uuidType = typeManager.getType(new TypeSignature(StandardTypes.UUID));
         this.connectorExpressionRewriter = JdbcConnectorExpressionRewriterBuilder.newBuilder()
                 .addStandardRules(this::quoted)
                 .withTypeClass("supported_type", ImmutableSet.of("tinyint", "smallint", "integer", "bigint", "decimal", "real", "char", "varchar"))
@@ -216,6 +226,8 @@ public class VerticaClient
     @Override
     public Optional<ColumnMapping> toColumnMapping(ConnectorSession session, Connection connection, JdbcTypeHandle typeHandle)
     {
+        String jdbcTypeName = typeHandle.jdbcTypeName()
+                .orElseThrow(() -> new TrinoException(JDBC_ERROR, "Type name is missing: " + typeHandle));
         Optional<ColumnMapping> mappingToVarchar = getForcedMappingToVarchar(typeHandle);
         if (mappingToVarchar.isPresent()) {
             return mappingToVarchar;
@@ -272,6 +284,12 @@ public class VerticaClient
 
             case Types.TIMESTAMP:
                 return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(TIMESTAMP_MICROS));
+        }
+
+        switch (jdbcTypeName) {
+            case "uuid":
+            case "Uuid":
+                return Optional.of(uuidColumnMapping());
         }
 
         if (getUnsupportedTypeHandling(session) == CONVERT_TO_VARCHAR) {
@@ -431,6 +449,10 @@ public class VerticaClient
             return WriteMapping.longMapping("date", dateWriteFunctionUsingString());
         }
 
+        if (type.equals(uuidType)) {
+            return WriteMapping.sliceMapping("uuid", uuidWriteFunction());
+        }
+
         if (type instanceof TimeType timeType) {
             if (timeType.getPrecision() <= POSTGRESQL_MAX_SUPPORTED_TIMESTAMP_PRECISION) {
                 return WriteMapping.longMapping(format("time(%s)", timeType.getPrecision()), timeWriteFunction(timeType.getPrecision()));
@@ -458,6 +480,19 @@ public class VerticaClient
         }
 
         throw new TrinoException(NOT_SUPPORTED, "Unsupported column type: " + type.getDisplayName());
+    }
+
+    private static SliceWriteFunction uuidWriteFunction()
+    {
+        return (statement, index, value) -> statement.setObject(index, trinoUuidToJavaUuid(value), Types.OTHER);
+    }
+
+    private ColumnMapping uuidColumnMapping()
+    {
+        return ColumnMapping.sliceMapping(
+                uuidType,
+                (resultSet, columnIndex) -> javaUuidToTrinoUuid((UUID) resultSet.getObject(columnIndex)),
+                uuidWriteFunction());
     }
 
     private static LongWriteFunction dateWriteFunctionUsingString()
