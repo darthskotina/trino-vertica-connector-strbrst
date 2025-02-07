@@ -127,7 +127,7 @@ import static io.trino.spi.type.RealType.REAL;
 import static io.trino.spi.type.SmallintType.SMALLINT;
 import static io.trino.spi.type.TimeType.createTimeType;
 import static io.trino.spi.type.TimeZoneKey.UTC_KEY;
-import static io.trino.spi.type.TimestampType.TIMESTAMP_MICROS;
+import static io.trino.spi.type.TimestampType.createTimestampType;
 import static io.trino.spi.type.Timestamps.MILLISECONDS_PER_SECOND;
 import static io.trino.spi.type.Timestamps.NANOSECONDS_PER_DAY;
 import static io.trino.spi.type.Timestamps.NANOSECONDS_PER_MILLISECOND;
@@ -283,7 +283,13 @@ public class VerticaClient
                 return Optional.of(timeColumnMapping(typeHandle.requiredDecimalDigits()));
 
             case Types.TIMESTAMP:
-                return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(TIMESTAMP_MICROS));
+                TimestampType timestampType = createTimestampType(typeHandle.requiredDecimalDigits());
+//                return Optional.of(ColumnMapping.longMapping(
+//                        timestampType,
+//                        timestampReadFunction(timestampType),
+//                        VerticaClient::shortTimestampWriteFunction));
+//                return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(TIMESTAMP_MICROS));
+                return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(timestampType));
         }
 
         switch (jdbcTypeName) {
@@ -303,7 +309,13 @@ public class VerticaClient
             throws SQLException
     {
         LocalDateTime localDateTime = fromTrinoTimestamp(epochMicros);
-        statement.setTimestamp(index, Timestamp.valueOf(localDateTime.toString()));
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendPattern("yyyy-MM-dd HH:mm:ss")
+                .appendFraction(ChronoField.NANO_OF_SECOND, 0, 6, true)
+                .toFormatter();
+        String timestampString = localDateTime.format(formatter);
+        statement.setTimestamp(index, Timestamp.valueOf(timestampString));
     }
 
     private static LongWriteFunction shortTimestampWithTimeZoneWriteFunction()

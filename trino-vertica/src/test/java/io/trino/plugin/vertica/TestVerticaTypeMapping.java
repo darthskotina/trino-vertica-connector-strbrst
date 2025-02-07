@@ -55,6 +55,7 @@ import static io.trino.spi.type.DecimalType.createDecimalType;
 import static io.trino.spi.type.DoubleType.DOUBLE;
 import static io.trino.spi.type.TimeZoneKey.UTC_KEY;
 import static io.trino.spi.type.TimeZoneKey.getTimeZoneKey;
+import static io.trino.spi.type.TimestampType.TIMESTAMP_MICROS;
 import static io.trino.spi.type.VarbinaryType.VARBINARY;
 import static io.trino.spi.type.VarcharType.createVarcharType;
 import static java.lang.String.format;
@@ -90,6 +91,7 @@ public class TestVerticaTypeMapping
                 .addRoundTrip("smallint", "32456", BIGINT, "BIGINT '32456'")
                 .addRoundTrip("integer", "123456789", BIGINT, "BIGINT '123456789'")
                 .addRoundTrip("bigint", "123456789012", BIGINT)
+                .addRoundTrip("timestamp", "timestamp '2024-01-01 12:34:56.001'", TIMESTAMP_MICROS)
                 .execute(getQueryRunner(), trinoCreateAsSelect("test_basic_types"));
     }
 
