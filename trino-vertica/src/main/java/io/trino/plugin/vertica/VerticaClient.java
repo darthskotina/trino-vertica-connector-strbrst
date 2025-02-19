@@ -283,10 +283,13 @@ public class VerticaClient
                 return Optional.of(timeColumnMapping(typeHandle.requiredDecimalDigits()));
 
             case Types.TIMESTAMP:
-                TimestampType timestampType = createTimestampType(typeHandle.requiredDecimalDigits());
+                int precision = POSTGRESQL_MAX_SUPPORTED_TIMESTAMP_PRECISION;
+                if (typeHandle.requiredDecimalDigits() > 0)
+                    then precision = typeHandle.requiredDecimalDigits()
+                TimestampType timestampType = createTimestampType(precision);
 //                return Optional.of(ColumnMapping.longMapping(
 //                        timestampType,
-//                        timestampReadFunction(timestampType),
+//                         timestampReadFunction(timestampType),
 //                        VerticaClient::shortTimestampWriteFunction));
 //                return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(TIMESTAMP_MICROS));
                 return Optional.of(timestampColumnMappingUsingSqlTimestampWithRounding(timestampType));
